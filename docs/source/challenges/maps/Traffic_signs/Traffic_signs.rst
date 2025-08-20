@@ -14,7 +14,7 @@ Trên đường đua có thể xuất hiện các biển báo giao thông sau:
 - Biển báo nhiễu (nâng cao)
 
 
-Bạn có thể tìm thấy các biển báo giao thông ở định dạng PDF (in ở khổ A4) tại đây:  `📄 Traffic signs <https://github.com/username/CDS-UTE-Documentation-Project/raw/main/docs/source/challenges/maps/Traffic_signs/signs.pdf>`_
+Bạn có thể tìm thấy các biển báo giao thông ở định dạng PDF (in ở khổ A4) tại đây:  `📄 Traffic signs <https://github.com/HieuTran2019/CDS-UTE---Documentation-Project/blob/main/docs/source/challenges/maps/Traffic_signs/bienbao_2.pdf>`_
 
 
 Mỗi dấu hiệu được gói gọn trong một hình vuông **6x6 cm** (tỷ lệ tương ứng). Ví dụ minh họa:  
@@ -43,8 +43,8 @@ Mô hình 3D cột biển báo
 
 Dưới đây là các mô hình 3D (STL) của trụ biển báo:
 
-- `🗂 Chân trụ biển báo <https://github.com/username/CDS-UTE-Documentation-Project/raw/main/docs/source/challenges/3d-models/TrackParts/chantrubienbao_v2.STL>`_
-- `🗂 Chân đế biển báo <https://github.com/username/CDS-UTE-Documentation-Project/raw/main/docs/source/challenges/3d-models/TrackParts/de_bien_bao_v5.STL>`_
+- `🗂 Chân trụ biển báo <https://github.com/HieuTran2019/CDS-UTE---Documentation-Project/blob/main/docs/source/challenges/3d-models/TrackParts/chantrubienbao_v2.STL>`_
+- `🗂 Chân đế biển báo <https://github.com/HieuTran2019/CDS-UTE---Documentation-Project/blob/main/docs/source/challenges/3d-models/TrackParts/de_bien_bao_v5.STL>`_
 
 
 Vị trí đặt biển báo

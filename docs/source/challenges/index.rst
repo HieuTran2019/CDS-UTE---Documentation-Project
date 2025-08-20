@@ -15,8 +15,8 @@ Các xe cần vượt qua nhiều chướng ngại vật và hoàn thành đư�
 
 Đường đua
 -------------------
-- `Track_Test <https://github.com/HieuTran2019/CDS-UTE---Documentation-Project>`_
-- `Race-track <https://github.com/HieuTran2019/CDS-UTE---Documentation-Project>`_  
+- `Track_Test <https://github.com/HieuTran2019/CDS-UTE---Documentation-Project/blob/main/docs/source/challenges/maps/Track_Test.png>`_
+- `Race-track <https://github.com/HieuTran2019/CDS-UTE---Documentation-Project/blob/main/docs/source/challenges/maps/Track_Test.png>`_  
 
 
 Kích thước thực tế của **Track_Test** là **6 x 6,4 m**.

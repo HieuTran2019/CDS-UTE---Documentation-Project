@@ -1,10 +1,11 @@
 # CDS-UTE Documentation Project
 
-# Cuộc thi Xe tự hành ứng dụng Xử lý ảnh và Trí tuệ nhân tạo - Tài liệu
+Cuộc thi Xe tự hành ứng dụng Xử lý ảnh và Trí tuệ nhân tạo - Tài liệu
 
-Đây là kho lưu trữ tài liệu cho cuộc thi nội bộ về xe tự hành, áp dụng các kỹ thuật xử lý ảnh và trí tuệ nhân tạo.
+Đây là kho lưu trữ tài liệu cho cuộc thi nội bộ về xe tự hành, áp dụng các kỹ thuật xử lý ảnh và trí tuệ nhân tạo.  
+Trang Web tài liệu online: [CDS-UTE Documentation](https://cds-ute-documentation-project.readthedocs.io/en/latest/)
 
-📌 Mục tiêu: Thiết kế và triển khai hệ thống xe tự hành có khả năng nhận diện làn đường, vật cản và thực hiện điều hướng tự động trong môi trường giả lập hoặc thực tế.
+📌 **Mục tiêu:** Thiết kế và triển khai hệ thống xe tự hành có khả năng nhận diện làn đường, vật cản và thực hiện điều hướng tự động trong môi trường giả lập hoặc thực tế.
 
 ## Nội dung tài liệu
 
