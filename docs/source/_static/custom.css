@@ -1,0 +1,19 @@
+div.wy-nav-content {
+  max-width: 80%; /* Adjust this value as needed */
+}
+
+a.reference.external{
+  font-weight: bold;
+} 
+.rst-content .align-center:not(table){
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-height: 500px; 
+  object-fit: contain;
+}
+
+/* Hide "On GitHub" section from versions menu */
+div.rst-versions {
+  display: none;
+}
