@@ -58,7 +58,7 @@ Hình 2 minh họa hàm điều khiển ESC trong STM32:
 
 .. figure:: controlESC.png
    :alt: Hàm điều khiển ESC
-   :width: 1000px
+   :width: 850px
    :align: center
 
    **Hình 2.** Hàm điều khiển ESC trong code STM32
@@ -67,25 +67,43 @@ Hình 2 minh họa hàm điều khiển ESC trong STM32:
 Tổng kết các tham số
 --------------------
 
-Bạn có thể tinh chỉnh lại các tham số PWM để phù hợp với từng xe:
+Bạn có thể tinh chỉnh lại các tham số PWM và giới hạn phần mềm để phù hợp với từng xe.
 
-- `PWM_NEUTRAL     = 1500` → Giữ nguyên  
-- `PWM_FORWARD_MIN = 1550` → Ngưỡng bắt đầu tiến  
-- `PWM_FORWARD_MAX = 1700` → Giảm để giới hạn tốc độ tối đa, tăng nếu muốn xe nhanh hơn  
-- `PWM_REVERSE_MIN = 1250` → Giảm để giới hạn tốc độ lùi tối đa, tăng nếu muốn xe lùi nhanh hơn  
-- `PWM_REVERSE_MAX = 1350` → Ngưỡng bắt đầu lùi   
+1. Chỉnh sửa trong file code Arduino  
+   `Control_CDS_ver3.ino <https://github.com/HieuTran2019/CDS_UTE_2025/blob/main/utils/Control_CDS_ver3/Control_CDS_ver3.ino>`_:
 
-Ví dụ cấu hình:
+- `PWM_NEUTRAL      = 1500`   → Vị trí trung tính (xe đứng yên)  
+- `PWM_FORWARD_MIN  = 1550`   → Ngưỡng bắt đầu tiến (tăng nếu xe chưa chạy được)  
+- `PWM_FORWARD_MAX  = 1700`   → Giới hạn tốc độ tiến tối đa (giảm nếu muốn xe chậm lại)  
+- `PWM_REVERSE_MIN  = 1250`   → Giới hạn tốc độ lùi tối đa (tăng nếu muốn xe lùi chậm lại)  
+- `PWM_REVERSE_MAX  = 1350`   → Ngưỡng bắt đầu lùi (giảm nếu xe không lùi được)  
+
+2. Chỉnh sửa trong file Python  
+   `control.py <https://github.com/HieuTran2019/CDS_UTE_2025/blob/main/utils/control.py>`_:
+
+- `speed = max(min(speed, 50), -25)`  
+  → Giới hạn tốc độ do phần mềm. Xe không bao giờ vượt quá 50 (tiến) hoặc -25 (lùi).  
+
+- `angle = max(min(angle, 25), -25)`  
+  → Giới hạn góc lái trong khoảng [-25°, 25°] để tránh servo vượt quá giới hạn cơ khí.  
+
+.. figure:: speed.png
+   :alt: Giới hạn tốc độ
+   :width: 500px
+   :align: center
+
+   **Hình 3.** Điều chỉnh giới hạn tốc độ trong code
+
+Ví dụ cấu hình trong Arduino:
 
 .. code-block:: cpp
 
     // Giới hạn xung PWM ESC
-    const int PWM_NEUTRAL     = 1500;   // Giá trị neutral
+    const int PWM_NEUTRAL     = 1500;   // Giá trị trung tính (xe đứng yên)
     const int PWM_FORWARD_MIN = 1550;   // Ngưỡng bắt đầu tiến
-    const int PWM_FORWARD_MAX = 1700;   // Giới hạn tốc độ tối đa
-    const int PWM_REVERSE_MIN = 1250;   // Giới hạn tốc độ lùi
+    const int PWM_FORWARD_MAX = 1700;   // Giới hạn tốc độ tiến tối đa
+    const int PWM_REVERSE_MIN = 1250;   // Giới hạn tốc độ lùi tối đa
     const int PWM_REVERSE_MAX = 1350;   // Ngưỡng bắt đầu lùi
 
-
-Tham khảo tại: `Điều khiển ESC <https://github.com/Tales-sv/Esp32-ESC_Controler>`_
-
+Tham khảo thêm:  
+`Điều khiển ESC <https://github.com/Tales-sv/Esp32-ESC_Controler>`_

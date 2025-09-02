@@ -7,7 +7,7 @@ Ví dụ: khi bạn đặt góc lái thẳng (90°), bánh xe thực tế có th
 Giải pháp
 ---------
 
-Để khắc phục sai số này, chúng tôi thiết lập các tham số khởi tạo nhằm giới hạn và hiệu chỉnh lại góc lái.
+Để khắc phục sai số này, tôi thiết lập các tham số khởi tạo nhằm giới hạn và hiệu chỉnh lại góc lái.
 
 Tham khảo code Arduino tại đây:  
 `Control_CDS_ver3.ino <https://github.com/HieuTran2019/CDS_UTE_2025/blob/main/utils/Control_CDS_ver3/Control_CDS_ver3.ino>`_
@@ -40,7 +40,7 @@ Một số điểm quan trọng:
 
 .. figure:: angle.jpg
    :alt: Giới hạn góc lái
-   :width: 1000px
+   :width: 800px
    :align: center
 
    **Hình 2.** Giới hạn góc lái an toàn
@@ -51,9 +51,30 @@ Tổng kết các tham số
 
 Bạn có thể tinh chỉnh lại các tham số góc lái để phù hợp với từng xe:
 
+1. Chỉnh sửa trong file code Arduino  
+   `Control_CDS_ver3.ino <https://github.com/HieuTran2019/CDS_UTE_2025/blob/main/utils/Control_CDS_ver3/Control_CDS_ver3.ino>`_:
+
 - `SERVO_LEFT_MAX  = 50;`   → Góc trái tối đa  
 - `SERVO_CENTER    = 90;`   → Vị trí trung tâm  
 - `SERVO_RIGHT_MAX = 130;`  → Góc phải tối đa  
+
+
+
+2. Chỉnh sửa trong file Python  
+   `control.py <https://github.com/HieuTran2019/CDS_UTE_2025/blob/main/utils/control.py>`_:
+
+- `speed = max(min(speed, 50), -25)`  
+  → Giới hạn tốc độ do phần mềm. Xe không bao giờ vượt quá 50 (tiến) hoặc -25 (lùi).  
+
+- `angle = max(min(angle, 25), -25)`  
+  → Giới hạn góc lái trong khoảng [-25°, 25°] để tránh servo vượt quá giới hạn cơ khí.  
+
+.. figure:: speed.png
+   :alt: Giới hạn tốc độ
+   :width: 500px
+   :align: center
+
+   **Hình 3.** Điều chỉnh giới hạn tốc độ trong code
 
 Ví dụ cấu hình:
 
