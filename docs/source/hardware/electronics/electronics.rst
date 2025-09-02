@@ -40,7 +40,7 @@ Cần chú ý hướng cắm, chân bắt đầu từ D7 đến D2.
 Các đầu nối loại XH2.54mm giúp việc thay thế và sửa chữa thuận tiện hơn.  
 Trên board còn có **LED màu xanh lá** để báo hiệu có điện từ ESC.
 
-.. figure:: mach_chia_dien.png
+.. figure:: Mach_chia_dien.png
    :alt: Mạch chia điện
    :width: 400px
    :align: center
