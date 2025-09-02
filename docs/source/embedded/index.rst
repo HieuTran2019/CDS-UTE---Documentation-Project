@@ -1,33 +1,68 @@
-.. CDS-UTE-Documentation-Project documentation master file, created by
-   sphinx-quickstart on Wed Aug 20 18:04:21 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Lập trình điều khiển
+======================
 
-Xe Tự Hành sử dụng Xử Lý Ảnh và Trí Tuệ Nhân Tạo - Tài liệu
-============================================================
+Tổng quan
+---------
 
-**Cuộc thi Xe Tự Hành sử dụng Xử Lý Ảnh và Trí Tuệ Nhân Tạo** là một cuộc thi kỹ thuật dành cho sinh viên, được tổ chức bởi **Trường Đại học Sư phạm Kỹ thuật TP.HCM (HCMUTE)**. 
-Trong cuộc thi này, các đội tham gia sẽ phát triển và triển khai các thuật toán lái xe tự hành trên một chiếc xe mô hình tỷ lệ **1/10**, do **UTE AI Lab** nghiên cứu và phát triển. 
-Tài liệu cuộc thi được tham khảo từ cuộc thi `Bosch Future Mobility Challenge (BFMC) <https://bosch-future-mobility-challenge-documentation.readthedocs-hosted.com/index.html>`_.
+Chương trình sẽ cung cấp cho bạn một giá trị đầu vào:
 
-Xem chi tiết tài liệu tại Github `repo <https://github.com/HieuTran2019/CDS-UTE---Documentation-Project>`_.
+- **image**: hình ảnh trả về từ xe.  
+- **Hàm điều khiển**: `control(speed, angle)` với các tham số:  
 
-Tài liệu chính thức này cung cấp hướng dẫn toàn diện, bao gồm:
+  + `angle` (góc điều khiển): giá trị trong khoảng **[-25, 25]**  
+    *Âm* → góc trái, *Dương* → góc phải  
 
-- Mô tả mã nguồn được cung cấp
-- Tổng quan chi tiết về đường đua và các yếu tố trên đường
-- Sơ đồ hệ thống và kiến trúc phần cứng
-- Hướng dẫn cài đặt và vận hành hệ thống
-- Lộ trình kiến thức giúp người tham gia bắt đầu và nâng cao hiệu quả thi đấu
+  + `speed` (tốc độ điều khiển): giá trị trong khoảng **[-25, 50]**  
+    *Âm* → lùi, *Dương* → tiến  
 
 
-Tài liệu này nhằm hỗ trợ bạn trong suốt quá trình tham gia cuộc thi – từ việc thiết lập hệ thống cho đến phát triển các thuật toán điều khiển. 
+Hướng dẫn chạy chương trình
+---------------------------
 
-**Hãy bắt đầu hành trình chinh phục xe tự hành!**
+Xem code tại repo:  
+
+`CDS_UTE_2025 <https://github.com/HieuTran2019/CDS_UTE_2025>`_
+
+Trước khi chạy, bạn cần chỉnh **port** mà STM32 kết nối với Orange Pi.  
+Trên Orange Pi, thông thường port sẽ là **/dev/ttyACM0**  
+
+.. figure:: img/port.png
+   :alt: port
+   :width: 1000px
+   :align: center
 
 
+Sau đó, để khởi chạy chương trình điều khiển, bạn dùng lệnh:
 
-.. Add your content using ``reStructuredText`` syntax. See the
-.. `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-.. documentation for details.
+.. code-block:: bash
 
+   python client.py
+
+Khi chạy, tín hiệu **speed** và **angle** sẽ được gửi từ Orange Pi đến STM32 thông qua cổng **STLink** (dây cáp USB).  
+
+**Lưu ý:** đảm bảo bạn đã nhấn nút **Start (màu xanh lá)** và LED on-board trên STM32 đã sáng.  
+
+
+Hướng dẫn code STM32
+---------------------
+
+Trong dự án này, STM32 được lập trình bằng công cụ **Arduino IDE**.  
+Bạn có thể xem hướng dẫn chi tiết tại:  
+
+`utils/README.md <https://github.com/HieuTran2019/CDS_UTE_2025/blob/main/utils/README.md>`_
+
+Phiên bản code **Control_CDS_ver3** là phiên bản hoàn thiện cuối cùng.  
+Tuy nhiên, bạn hoàn toàn có thể hiệu chỉnh các tham số hoặc mở rộng thêm nếu muốn.  
+
+
+Điều chỉnh tốc độ và góc lái
+----------------------------
+
+Dưới đây là hai phần hướng dẫn chi tiết để hiệu chỉnh:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Nội dung:
+
+   img/speed
+   img/angle
