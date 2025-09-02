@@ -31,10 +31,3 @@ Tài liệu này nhằm hỗ trợ bạn trong suốt quá trình tham gia cuộ
 .. `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
 .. documentation for details.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Nội dung:
-
-   hardware/index
-   challenges/index
-   embedded/index
